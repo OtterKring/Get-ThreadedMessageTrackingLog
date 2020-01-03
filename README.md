@@ -21,8 +21,9 @@ By default, when you run `Get-TransportService | Get-MessageTrackingLog` Exchang
 - credentials to pass to the function to be able to import more exchange sessions
 
 ## Example
+import an Exchange Session and retrieve the logs of the last 3 days:
 
     $cred_exc = Get-Credential
-    $psex = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "http://yourexchangeserver/PowerShell/" -Authentication Kerberos -Credential $cred_exc
-    Import-PSSession $psex -DisableNameChecking
-    Get-ThreadedMessageTrackingLog -Credential $cred_exc -Start (Get-Date).AddDays(-3)
+    $ps_exc = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "http://yourexchangeserver/PowerShell/" -Authentication Kerberos -Credential $cred_exc
+    Import-PSSession $ps_exc -DisableNameChecking
+    Get-ThreadedMessageTrackingLog -Credential $cred_exc -Start (Get-Date).AddDays(-3) | Out-GridView
