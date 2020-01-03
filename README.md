@@ -19,3 +19,10 @@ By default, when you run `Get-TransportService | Get-MessageTrackingLog` Exchang
 - Powershell 7+
 - an already imported Exchange Session
 - credentials to pass to the function to be able to import more exchange sessions
+
+## Example
+
+    $cred_exc = Get-Credential
+    $psex = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "http://yourexchangeserver/PowerShell/" -Authentication Kerberos -Credential $cred_exc
+    Import-PSSession $psex -DisableNameChecking
+    Get-ThreadedMessageTrackingLog -Credential $cred_exc -Start (Get-Date).AddDays(-3)
