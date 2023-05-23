@@ -1,4 +1,4 @@
-# PS_Get-ThreadedMessageTrackingLog
+# Get-ThreadedMessageTrackingLog
 multi-threaded Exchagne Message Tracking (on premises only!)
 
 
